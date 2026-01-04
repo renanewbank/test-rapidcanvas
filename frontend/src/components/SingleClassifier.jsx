@@ -97,12 +97,25 @@ const SingleClassifier = () => {
           {/* Result Feedback */}
           {result && (
             <Box sx={{ mt: 3, p: 2, bgcolor: '#f5f5f5', borderRadius: 1, textAlign: 'center' }}>
-              <Typography variant="subtitle1">Predicted Category:</Typography>
-              <Chip 
-                label={result.category} 
-                color={getCategoryColor(result.category)}
-                sx={{ mt: 1, fontSize: '1.2rem', px: 2, py: 2.5 }}
-              />
+              <Typography variant="subtitle1" gutterBottom>Prediction Result:</Typography>
+              
+              <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2, flexWrap: 'wrap' }}>
+                <Chip 
+                  label={result.category} 
+                  color={getCategoryColor(result.category)}
+                  sx={{ fontSize: '1.2rem', px: 2, py: 2.5 }}
+                />
+                
+                {/* Confidence Display */}
+                {result.confidence && (
+                  <Chip 
+                    label={`Confidence: ${(result.confidence * 100).toFixed(1)}%`}
+                    variant="outlined"
+                    color="default"
+                    sx={{ fontSize: '1rem', py: 2 }}
+                  />
+                )}
+              </Box>
             </Box>
           )}
         </CardContent>

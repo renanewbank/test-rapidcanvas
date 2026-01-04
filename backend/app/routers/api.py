@@ -42,6 +42,7 @@ async def predict_news(input_data: NewsInput):
     
     return {
         "category": result["category"],
+        "confidence": result.get("confidence"),
         "input_text": input_data.text
     }
 

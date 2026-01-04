@@ -1,7 +1,8 @@
 import joblib
 import os
 import logging
-from typing import Dict, Any
+from typing import Dict, Any, List
+import numpy as np
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -40,7 +41,7 @@ class MLService:
         except Exception as e:
             logger.error(f"Failed to load model: {str(e)}")
             self.model = None
-
+        
     def predict(self, text: str) -> Dict[str, Any]:
         """Runs inference on a single text input."""
         if not self.model:
@@ -48,10 +49,21 @@ class MLService:
             return {"category": "Error: Model not loaded"}
         
         try:
-            # The pipeline handles TF-IDF vectorization automatically
-            prediction_idx = self.model.predict([text])[0]
+            # Get probabilities for all classes (returns array like [[0.1, 0.8, 0.05, 0.05]])
+            probabilities = self.model.predict_proba([text])[0]
+            
+            # Get the index of the highest probability
+            prediction_idx = np.argmax(probabilities)
+            
+            # Get the confidence score (the highest probability)
+            confidence_score = float(np.max(probabilities))
+            
             category = CLASS_NAMES.get(prediction_idx, "Unknown")
-            return {"category": category}
+            
+            return {
+                "category": category,
+                "confidence": confidence_score
+            }
         except Exception as e:
             logger.error(f"Prediction error: {str(e)}")
             return {"category": "Error during prediction"}
