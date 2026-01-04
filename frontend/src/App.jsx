@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { 
+  Container, 
+  AppBar, 
+  Toolbar, 
+  Typography, 
+  Box, 
+  Tabs, 
+  Tab, 
+  CssBaseline 
+} from '@mui/material';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import SingleClassifier from './components/SingleClassifier';
+import BatchClassifier from './components/BatchClassifier';
+import ModelInfo from './components/ModelInfo'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currentTab, setCurrentTab] = useState(0);
+
+  const handleTabChange = (event, newValue) => {
+    setCurrentTab(newValue);
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <CssBaseline /> {/* Resets CSS for consistent look */}
+      
+      {/* Header / Navigation */}
+      <AppBar position="static">
+        <Toolbar>
+          <NewspaperIcon sx={{ mr: 2 }} />
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            RapidCanvas News Classifier
+          </Typography>
+        </Toolbar>
+        <Box sx={{ bgcolor: 'white' }}>
+          <Tabs value={currentTab} onChange={handleTabChange} centered>
+            <Tab label="Single Classification" />
+            <Tab label="Batch Process" />
+            <Tab label="Model Info" />
+          </Tabs>
+        </Box>
+      </AppBar>
+
+      {/* Main Content Area - Responsive Container */}
+      <Container maxWidth="lg" sx={{ minHeight: '80vh', py: 4 }}>
+        
+        {/* Conditional Rendering based on Tab */}
+        {currentTab === 0 && <SingleClassifier />}
+        {currentTab === 1 && <BatchClassifier />}
+        {currentTab === 2 && <ModelInfo />}
+
+      </Container>
+
+      {/* Footer */}
+      <Box sx={{ bgcolor: '#eee', p: 2, mt: 'auto', textAlign: 'center' }}>
+        <Typography variant="caption" color="text.secondary">
+          Junior Data Scientist Assessment - 2026
+        </Typography>
+      </Box>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
