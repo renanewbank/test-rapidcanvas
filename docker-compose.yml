@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    container_name: rapidcanvas-backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Optional: Maps local model folder to container so you don't need to rebuild to update model
+      - ./backend/model:/app/model
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  frontend:
+    build: ./frontend
+    container_name: rapidcanvas-frontend
+    ports:
+      - "80:80" # Maps container port 80 to your machine's port 80
+    depends_on:
+      - backend

@@ -1,8 +1,11 @@
 import axios from 'axios';
 
-// Create an axios instance with default config
+// Empty baseURL means "use the current domain/host".
+// Since we are using Nginx as a Reverse Proxy, the browser will send 
+// requests to the same domain (e.g., localhost or the ngrok URL), 
+// and Nginx will route them internally to the backend container.
 const api = axios.create({
-  baseURL: 'http://127.0.0.1:8000', // Backend URL
+  baseURL: '', 
   headers: {
     'Content-Type': 'application/json',
   },

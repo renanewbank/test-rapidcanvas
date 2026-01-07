@@ -1,0 +1,14 @@
+# Ignorar pastas de dependências locais
+backend/venv
+backend/.venv
+frontend/node_modules
+
+# Ignorar arquivos de sistema/IDE
+.DS_Store
+.git
+.vscode
+__pycache__
+*.pyc
+
+# Ignorar builds locais
+frontend/dist
