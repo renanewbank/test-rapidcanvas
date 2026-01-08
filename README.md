@@ -148,7 +148,7 @@ npm run dev
 
 ## Possible Future Improvements
 
-If given more time, the following features would be implemented:
+If given more time, the following features would be worked on:
 
 1. **ML Ops:** Implement a Model Registry (e.g., MLflow) to manage model versions dynamically instead of loading a static `.pkl` file.
 2. **Database Integration:** Connect a PostgreSQL database to store user feedback and flagged misclassifications for future retraining (Human-in-the-loop).
