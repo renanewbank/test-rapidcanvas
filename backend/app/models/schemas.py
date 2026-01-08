@@ -14,7 +14,7 @@ class NewsInput(BaseModel):
 
 class NewsBatchInput(BaseModel):
     """Schema for batch news text input."""
-    texts: List[str] = Field(..., description="List of news articles to classify", min_length=10)
+    texts: List[str] = Field(..., description="List of news articles to classify")
 
     class Config:
         json_schema_extra = {
