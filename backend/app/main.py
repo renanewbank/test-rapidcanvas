@@ -4,7 +4,7 @@ from app.routers import api
 
 # Initialize the application
 app = FastAPI(
-    title="RapidCanvas News Classifier API",
+    title="RapidCanvas Text Classification API",
     description="Backend API for the Junior Data Scientist Technical Assessment.",
     version="1.0.0"
 )
