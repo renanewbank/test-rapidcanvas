@@ -181,4 +181,24 @@ test-rapidcanvas/
 
 ```
 
+## Sample Data for Testing
+
+To quickly test the **Batch Classification** feature, you can copy and paste the following headlines into the input area:
+
+```text
+NASA discovers new planet
+Google stocks are up today
+Neymar scored three goals
+New AI model released by OpenAI
+Venezuela's president is captured on U.S. military operation
+
 ```
+
+**Expected Results:**
+
+* *NASA...* → **Sci/Tech**
+* *Google...* → **Business**
+* *Neymar...* → **Sports**
+* *New AI...* → **Sci/Tech**
+* *Venezuela...* → **World**
+
