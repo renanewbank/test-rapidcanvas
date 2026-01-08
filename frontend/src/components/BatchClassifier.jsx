@@ -79,7 +79,7 @@ const BatchClassifier = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 900, mx: 'auto', mt: 4 }}>
+    <Box sx={{ width: '100%', maxWidth: 900, mx: 'auto'}}>
       <Card elevation={3}>
         <CardContent>
           <Typography variant="h5" gutterBottom>
@@ -116,7 +116,7 @@ const BatchClassifier = () => {
             {results.length > 0 && (
               <Button
                 variant="outlined"
-                color="secondary"
+                color="primary"
                 startIcon={<DownloadIcon />}
                 onClick={handleExportCSV}
               >

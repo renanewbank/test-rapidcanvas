@@ -1,11 +1,11 @@
-# News Classification System 📰
+# News Classification System 
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue)
 ![React](https://img.shields.io/badge/Frontend-React-61DAFB)
 ![FastAPI](https://img.shields.io/badge/Backend-FastAPI-009688)
 ![Docker](https://img.shields.io/badge/Deployment-Docker-2496ED)
 
-## 📋 Project Description
+## Project Description
 This project implements an end-to-end web application for automatic news classification, designed to assist news portal editors in quickly categorizing incoming articles.
 
 The system uses Natural Language Processing (NLP) to classify articles into four categories: **World, Sports, Business, and Sci/Tech**. It features a React frontend, a FastAPI backend, and is containerized for easy deployment.
@@ -19,7 +19,7 @@ The system uses Natural Language Processing (NLP) to classify articles into four
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 The application follows a microservices-ready architecture:
 
 1.  **Frontend:** React (Vite) served via **Nginx**. Acts as a reverse proxy to route API requests, eliminating CORS issues.
@@ -29,7 +29,7 @@ The application follows a microservices-ready architecture:
 
 ---
 
-## 🧠 Machine Learning Approach
+## Machine Learning Approach
 **Model:** TF-IDF Vectorizer + Multinomial Naive Bayes.
 
 **Justification:**
@@ -54,7 +54,7 @@ The model was evaluated on a held-out test set of 7,600 samples from the AG News
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 You can run the application using **Docker (Recommended)** or manually.
 
@@ -95,7 +95,7 @@ npm run dev
 
 ---
 
-## 📡 API Documentation
+## API Documentation
 
 The backend provides automatic interactive documentation via Swagger UI.
 
@@ -105,7 +105,7 @@ The backend provides automatic interactive documentation via Swagger UI.
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Language:** Python 3.13
 * **ML Libraries:** Scikit-learn, Pandas, Joblib, Numpy
@@ -115,7 +115,7 @@ The backend provides automatic interactive documentation via Swagger UI.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 test-rapidcanvas/
@@ -124,6 +124,7 @@ test-rapidcanvas/
 │   │   ├── main.py          # App entrypoint
 │   │   ├── services/        # ML inference logic
 │   │   └── routers/         # API endpoints
+│   │   └── models/          # Schemas
 │   ├── model/               # Serialized .pkl model
 │   ├── notebooks/           # Training and analysis notebooks
 │   └── Dockerfile
@@ -134,5 +135,6 @@ test-rapidcanvas/
 │   ├── nginx.conf           # Reverse proxy config
 │   └── Dockerfile
 └── docker-compose.yml       # Orchestration
+└── README.md                # Documentation
 
 ```

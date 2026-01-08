@@ -54,7 +54,7 @@ const SingleClassifier = () => {
   };
 
   return (
-    <Box sx={{ maxWidth: 600, mx: 'auto', mt: 4 }}>
+    <Box sx={{ widht: '100%', maxWidth: 600, mx: 'auto'}}>
       <Card elevation={3}>
         <CardContent>
           <Typography variant="h5" gutterBottom component="div">
