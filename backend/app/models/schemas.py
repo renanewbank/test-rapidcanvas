@@ -16,6 +16,19 @@ class NewsBatchInput(BaseModel):
     """Schema for batch news text input."""
     texts: List[str] = Field(..., description="List of news articles to classify")
 
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "texts": [
+                    "NASA discovers new planet",
+                    "NVIDIA stocks are up today",
+                    "Neymar scored three goals",
+                    "New AI model released by OpenAI",
+                    "Venezuela's president is captured on U.S. military operation"
+                ]
+            }
+        }
+
 class PredictionOutput(BaseModel):
     """Schema for prediction response."""
     category: str
